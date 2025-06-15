@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ТёмноСерый"
+    tools:context=".activities.NewOption">
+
+    <ImageButton
+        android:id="@+id/BackImBNO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/back_im_b"
+        android:scaleType="fitCenter"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="260dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/TextTrOrAct"
+        android:text="Выберите триггер"
+        android:textColor="@color/white"
+        android:textSize="27sp"
+        android:gravity="center"
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/TextTrOrAct"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                android:id="@+id/TriggersChange">
+
+                <Button
+                    android:id="@+id/PowerB"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="27sp"
+                    android:textColor="@color/white"
+                    android:padding="5dp"
+                    android:text="Питание/батарея"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:id="@+id/LLPower">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:id="@+id/ConnectingPowerB"
+                            android:text="Подключение питания"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:background="@android:color/transparent"/>
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:id="@+id/PowerOffB"
+                            android:text="Отключение питания"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:background="@android:color/transparent"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:id="@+id/PressingPowerB"
+                            android:text="Нажатие кнопки питания"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:background="@android:color/transparent"/>
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:id="@+id/ChargeLavelB"
+                            android:text="Уровень заряда батареи"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:background="@android:color/transparent"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/TimeB"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="27sp"
+                    android:textColor="@color/white"
+                    android:padding="5dp"
+                    android:text="Дата/время"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:id="@+id/LLTime">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:id="@+id/DayOfWeek"
+                            android:text="День недели"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:background="@android:color/transparent"/>
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:id="@+id/DayOfMonth"
+                            android:text="День месяца"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:background="@android:color/transparent"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:id="@+id/ActionsChange">
+
+                <Button
+                    android:id="@+id/VolumeB"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textSize="27sp"
+                    android:textColor="@color/white"
+                    android:padding="5dp"
+                    android:text="Громкость"
+                    android:background="@android:color/transparent"
+                    android:gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:id="@+id/LLValume">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/VolumeOffB"
+                            android:layout_weight="1"
+                            android:text="Выключить звук"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:background="@android:color/transparent"/>
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:id="@+id/VibrationOnB"
+                            android:layout_weight="1"
+                            android:text="Включить вибрацию"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:background="@android:color/transparent"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
