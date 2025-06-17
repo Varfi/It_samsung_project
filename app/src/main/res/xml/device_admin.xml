@@ -1,10 +1,11 @@
-<!-- res/xml/device_admin.xml -->
-<device-admin xmlns:android="http://schemas.android.com/apk/res/android">
+<device-admin>
     <uses-policies>
-        <force-lock />
-        <wipe-data />
-        <expire-password />
         <limit-password />
         <watch-login />
+        <reset-password />
+        <force-lock />
+        <wipe-data />
+        <set-global-proxy />
+        <set-ringtone />
     </uses-policies>
 </device-admin>

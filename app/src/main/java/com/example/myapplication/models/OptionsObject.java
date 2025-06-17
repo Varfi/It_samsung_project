@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.media.AudioManager;
 import android.provider.Settings;
+import android.widget.Toast;
 
 import com.example.myapplication.MyDeviceAdminReceiver;
 
@@ -16,9 +17,6 @@ public class OptionsObject {
     Boolean isOn = Boolean.TRUE;
     Integer Power = 0;
 
-    public OptionsObject(Context context) {
-        this.context = context;
-    }
     public OptionsObject(String name, String serves, String actionFunction, Boolean isOn){
         this.name = name;
         this.serves = serves;
@@ -47,25 +45,25 @@ public class OptionsObject {
         return actionFunction;
     }
 
-
-
-
-    public void CallFunction(){
+    public void CallFunction(String actionFunction){
+        context = context.getApplicationContext();
+        if (context == null) return;
         DevicePolicyManager devicePolicyManager = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         ComponentName adminComponent = new ComponentName(context, MyDeviceAdminReceiver.class);
         AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         switch (actionFunction){
             case "VibrationOn":
                 devicePolicyManager.setGlobalSetting(adminComponent, Settings.Global.MODE_RINGER, String.valueOf(AudioManager.RINGER_MODE_VIBRATE));
-                audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                //audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                Toast.makeText(context, "вибрация включена", Toast.LENGTH_SHORT).show();
                 break;
             case "VolumeOff":
                 devicePolicyManager.setGlobalSetting(adminComponent, Settings.Global.MODE_RINGER, String.valueOf(AudioManager.RINGER_MODE_SILENT));
-                audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                //audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
                 break;
             case "VolumeOn":
                 devicePolicyManager.setGlobalSetting(adminComponent, Settings.Global.MODE_RINGER, String.valueOf(AudioManager.RINGER_MODE_NORMAL));
-                audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                //audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
                 break;
         }
     }

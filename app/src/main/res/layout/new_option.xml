@@ -244,7 +244,7 @@
                             android:layout_height="match_parent"
                             android:id="@+id/VolumeOnB"
                             android:layout_weight="1"
-                            android:text="Включить зввук"
+                            android:text="Включить звук"
                             android:textColor="@color/white"
                             android:textSize="20sp"
                             android:background="@android:color/transparent"/>

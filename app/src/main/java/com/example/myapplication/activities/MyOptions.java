@@ -40,7 +40,5 @@ public class MyOptions extends AppCompatActivity {
         OptionCards adapter = new OptionCards(optionsList);
         recyclerView.setAdapter(adapter);
 
-        PowerConnectionReceiver receiver = new PowerConnectionReceiver();
-        receiver.registerReceiver(this);
     }
 }

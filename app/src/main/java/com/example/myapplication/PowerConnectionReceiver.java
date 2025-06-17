@@ -7,17 +7,32 @@ import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.widget.Toast;
 
+import com.example.myapplication.data.Options;
+import com.example.myapplication.models.OptionsObject;
+
+import java.util.List;
+
 public class PowerConnectionReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
+        Options list = (Options) context.getApplicationContext();
+
+
+
         if (Intent.ACTION_POWER_CONNECTED.equals(action)) {
-            // Питание подключено
-            Toast.makeText(context, "Питание подключено", Toast.LENGTH_SHORT).show();
+            for (OptionsObject obj : list.getGlobalList()) {
+                if (obj.isChecked() && obj.getServes().equals("ConnectingPower")) {
+                    obj.CallFunction(obj.getFunction());
+                }
+            }
         } else if (Intent.ACTION_POWER_DISCONNECTED.equals(action)) {
-            // Питание отключено
-            Toast.makeText(context, "Питание отключено", Toast.LENGTH_SHORT).show();
+            for (OptionsObject obj : list.getGlobalList()) {
+                if (obj.isChecked() && obj.getServes().equals("PowerOff")) {
+                    obj.CallFunction(obj.getFunction());
+                }
+            }
         }
     }
 

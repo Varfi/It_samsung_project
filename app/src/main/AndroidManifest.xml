@@ -19,14 +19,6 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
 
-        <receiver android:name=".BatteryMonitorReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-            </intent-filter>
-        </receiver>
-
         <receiver
             android:name=".MyDeviceAdminReceiver"
             android:exported="false"
