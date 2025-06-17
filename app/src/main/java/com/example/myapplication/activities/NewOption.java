@@ -158,7 +158,7 @@ public class NewOption extends AppCompatActivity {
         VolumeOffB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                function = "VolumeOffB";
+                function = "VolumeOff";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(NewOption.this);
                 builder.setTitle("Введите название опции");
@@ -187,7 +187,35 @@ public class NewOption extends AppCompatActivity {
         VibrationOnB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                function = "VibrationOnB";
+                function = "VibrationOn";
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(NewOption.this);
+                builder.setTitle("Введите название опции");
+                final EditText input = new EditText(NewOption.this);
+                input.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input);
+                builder.setCancelable(false);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        name = input.getText().toString();
+                        Toast.makeText(NewOption.this, "Опция сохранена: " + name, Toast.LENGTH_SHORT).show();
+                        Options OO = (Options) getApplicationContext();
+                        OptionsObject newOptionsObject = new OptionsObject(name, server, function, Boolean.TRUE);
+                        OO.addToGlobalList(newOptionsObject);
+                        finish();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
+        Button VolumeOnB = findViewById(R.id.VolumeOnB);
+        VolumeOnB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                function = "VolumeOn";
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(NewOption.this);
                 builder.setTitle("Введите название опции");

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.Cards.OptionCards;
+import com.example.myapplication.PowerConnectionReceiver;
 import com.example.myapplication.R;
 import com.example.myapplication.data.Options;
 import com.example.myapplication.models.OptionsObject;
@@ -38,5 +39,8 @@ public class MyOptions extends AppCompatActivity {
 
         OptionCards adapter = new OptionCards(optionsList);
         recyclerView.setAdapter(adapter);
+
+        PowerConnectionReceiver receiver = new PowerConnectionReceiver();
+        receiver.registerReceiver(this);
     }
 }

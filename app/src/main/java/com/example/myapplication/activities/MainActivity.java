@@ -1,5 +1,8 @@
 package com.example.myapplication.activities;
 
+import android.app.Activity;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,9 +10,21 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication.MyDeviceAdminReceiver;
 import com.example.myapplication.R;
+import com.example.myapplication.models.OptionsObject;
 
 public class MainActivity extends AppCompatActivity {
+
+    OptionsObject setContext = new OptionsObject(this);
+    public void requestAdminRights(Activity activity) {
+        Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+        intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,
+                new ComponentName(activity, MyDeviceAdminReceiver.class));
+        intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,
+                "Для изменения системных настроек звука и вибрации");
+        activity.startActivityForResult(intent, REQUEST_CODE_ENABLE_ADMIN);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
